@@ -25,24 +25,52 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(goRight, goUp);
         if (goUp > 1)
         {
-            //if(transform.rotation.z > )
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            if(goRight > 1)
+            {
+                SetRotation(-45);
+            }
+            else if(goRight < -1)
+            {
+                SetRotation(45);
+            }
+            else
+            {
+                SetRotation(0);
+            }
+            
         }
         else if (goUp < -1)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            if (goRight > 1)
+            {
+                SetRotation(-45);
+            }
+            else if (goRight < -1)
+            {
+                SetRotation(45);
+            }
+            else
+            {
+                SetRotation(180);
+            }
+            
         }
         else if (goRight > 1)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
+            SetRotation(-90);
         }
         else if (goRight < -1)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            SetRotation(90);
         }
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, Input.mousePosition.z));
         //Vector3 mousePos = Input.mousePosition;
         //transform.LookAt(mousePos);
         //Debug.Log("Vertical: " + goUp + "Horizontal: " + goRight);
+    }
+    
+    private void SetRotation(int deg)
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, deg));
     }
 }
