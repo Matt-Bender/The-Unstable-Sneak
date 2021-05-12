@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 startingPos;
     [SerializeField] private bool verticalPatrol;
+    [SerializeField] private bool maxPatrolLength;
 
     private GameObject player;
     private Stealth playerStealthScript;
@@ -35,26 +36,29 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = transform.TransformDirection(new Vector2(0, 3));
-        if (verticalPatrol)
+        if (maxPatrolLength)
         {
-            if (transform.position.y > startingPos.y + 5)
+            if (verticalPatrol)
             {
-                SetDirection(Vector2.down);
+                if (transform.position.y > startingPos.y + 5)
+                {
+                    SetDirection(Vector2.down);
+                }
+                else if (transform.position.y < startingPos.y - 5)
+                {
+                    SetDirection(Vector2.up);
+                }
             }
-            else if (transform.position.y < startingPos.y - 5)
+            else
             {
-                SetDirection(Vector2.up);
-            }
-        }
-        else
-        {
-            if (transform.position.x > startingPos.x + 5)
-            {
-                SetDirection(Vector2.left);
-            }
-            else if (transform.position.x < startingPos.x - 5)
-            {
-                SetDirection(Vector2.right);
+                if (transform.position.x > startingPos.x + 5)
+                {
+                    SetDirection(Vector2.left);
+                }
+                else if (transform.position.x < startingPos.x - 5)
+                {
+                    SetDirection(Vector2.right);
+                }
             }
         }
     }

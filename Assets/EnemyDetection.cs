@@ -31,7 +31,7 @@ public class EnemyDetection : MonoBehaviour
         if (hit.collider != null)
         {
             //Debug.Log("Raycast Hit Wall");
-            wideRangeDetection.transform.localScale = new Vector3(wideRangeDetection.transform.localScale.x, hit.distance, wideRangeDetection.transform.localScale.z);
+            wideRangeDetection.transform.localScale = new Vector3(wideRangeDetection.transform.localScale.x, hit.distance - .5f, wideRangeDetection.transform.localScale.z);
             wideRangeDetection.transform.localPosition = new Vector3(wideRangeDetection.transform.localPosition.x, wideRangeDetection.transform.localScale.y / 2 + .5f, wideRangeDetection.transform.localPosition.z);
         }
         else

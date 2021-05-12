@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3399698}
   - component: {fileID: 3399697}
   - component: {fileID: 3399696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Long Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 792228707}
   - component: {fileID: 792228706}
   - component: {fileID: 792228705}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wide Range Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 4181261976628620002}
   - component: {fileID: 4181261976628620005}
   - component: {fileID: 608766385}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalPatrol: 1
+  maxPatrolLength: 0
 --- !u!114 &608766385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +342,7 @@ GameObject:
   - component: {fileID: 4181261976713617907}
   - component: {fileID: 4181261976713617906}
   - component: {fileID: 4181261976713617909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
