@@ -9,19 +9,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6286766061554676890, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
       propertyPath: m_Name
-      value: Wall (2)
+      value: Wall Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 6286766061554676894, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6286766061554676894, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286766061554676894, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.464906
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6286766061554676894, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.570572
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6286766061554676894, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
       propertyPath: m_LocalPosition.z

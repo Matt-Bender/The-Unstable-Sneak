@@ -313,7 +313,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalPatrol: 1
-  maxPatrolLength: 0
+  limitPatrolLength: 0
+  maxPatrolLength: 10
 --- !u!114 &608766385
 MonoBehaviour:
   m_ObjectHideFlags: 0

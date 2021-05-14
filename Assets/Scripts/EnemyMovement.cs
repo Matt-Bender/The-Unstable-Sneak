@@ -7,7 +7,8 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 startingPos;
     [SerializeField] private bool verticalPatrol;
-    [SerializeField] private bool maxPatrolLength;
+    [SerializeField] private bool limitPatrolLength;
+    [SerializeField] private int maxPatrolLength;
 
     private GameObject player;
     private Stealth playerStealthScript;
@@ -35,27 +36,27 @@ public class EnemyMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.velocity = transform.TransformDirection(new Vector2(0, 3));
-        if (maxPatrolLength)
+        rb.velocity = transform.TransformDirection(new Vector2(0, 4));
+        if (limitPatrolLength)
         {
             if (verticalPatrol)
             {
-                if (transform.position.y > startingPos.y + 5)
+                if (transform.position.y > startingPos.y + maxPatrolLength)
                 {
                     SetDirection(Vector2.down);
                 }
-                else if (transform.position.y < startingPos.y - 5)
+                else if (transform.position.y < startingPos.y - maxPatrolLength)
                 {
                     SetDirection(Vector2.up);
                 }
             }
             else
             {
-                if (transform.position.x > startingPos.x + 5)
+                if (transform.position.x > startingPos.x + maxPatrolLength)
                 {
                     SetDirection(Vector2.left);
                 }
-                else if (transform.position.x < startingPos.x - 5)
+                else if (transform.position.x < startingPos.x - maxPatrolLength)
                 {
                     SetDirection(Vector2.right);
                 }
@@ -80,6 +81,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ReverseDirection();
+        //Debug.Log(gameObject.name + " Collision");
     }
     private void ReverseDirection()
     {
@@ -125,6 +127,7 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
         }
         direction = dir;
+        //Debug.Log(gameObject.name + ": " + dir);
     }
     public Vector2 GetDirection()
     {
