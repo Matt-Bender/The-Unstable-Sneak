@@ -7,9 +7,12 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject[] blocks;
     [SerializeField] private GameObject perimeter1;
     [SerializeField] private GameObject perimeter2;
+
+    [SerializeField] private bool genLevel;
     // Start is called before the first frame update
     void Start()
     {
+        if(genLevel)
         GenLevel();
     }
 

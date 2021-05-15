@@ -6,6 +6,8 @@ public class StarPickup : MonoBehaviour
 {
     private Animator sAnim;
     private GameManager gameManagerScript;
+    [SerializeField] private GameObject door;
+    private Door doorScript;
 
     private bool pickedup = false;
     // Start is called before the first frame update
@@ -13,6 +15,11 @@ public class StarPickup : MonoBehaviour
     {
         sAnim = GetComponent<Animator>();
         gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(door == null)
+        {
+            Debug.Log(gameObject.name + " Missing Door Reference");
+        }
+        doorScript = door.GetComponent<Door>();
     }
 
     // Update is called once per frame
@@ -24,8 +31,9 @@ public class StarPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !pickedup)
         {
+            gameManagerScript.SetCheckpoint(gameObject.transform.position);
+            doorScript.IncreaseStarCount();
             pickedup = true;
-            gameManagerScript.IncreaseStarCount();
             sAnim.SetTrigger("Death");
         }
     }

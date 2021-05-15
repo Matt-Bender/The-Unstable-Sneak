@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int starsPickedUp = 0;
+    private Vector3 recentCheckpoint;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        //if (recentCheckpoint != null)
+        //{
+        //    player.transform.position = recentCheckpoint;
+        //}
         
     }
 
@@ -17,17 +23,14 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    public void IncreaseStarCount()
-    {
-        starsPickedUp++;
-        if(starsPickedUp >= 3)
-        {
-            Debug.Log("You Win");
-        }
-    }
     public void RestartScene()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
+    }
+
+    public void SetCheckpoint(Vector3 checkpoint)
+    {
+        recentCheckpoint = checkpoint;
     }
 }
