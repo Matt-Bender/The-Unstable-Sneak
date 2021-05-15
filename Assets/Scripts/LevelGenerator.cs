@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject perimeter2;
 
     [SerializeField] private bool genLevel;
+    [SerializeField] private Transform wallParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 //0-3
                 int randNum = Random.Range(0, 4);
-                Instantiate(blocks[randNum], new Vector2(x, y), Quaternion.identity);
+                Instantiate(blocks[randNum], new Vector2(x, y), Quaternion.identity, wallParent);
             }
         }
 
