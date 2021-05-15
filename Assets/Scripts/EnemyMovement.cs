@@ -73,8 +73,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                Debug.Log("You Lose");
-                gameManagerScript.RestartScene();
+                gameManagerScript.ReturnCheckpoint();
             }
         }
     }

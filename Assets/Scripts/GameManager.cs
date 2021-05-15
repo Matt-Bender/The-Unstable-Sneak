@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        recentCheckpoint = player.transform.position;
         //if (recentCheckpoint != null)
         //{
         //    player.transform.position = recentCheckpoint;
@@ -32,5 +33,14 @@ public class GameManager : MonoBehaviour
     public void SetCheckpoint(Vector3 checkpoint)
     {
         recentCheckpoint = checkpoint;
+    }
+
+    public void ReturnCheckpoint()
+    {
+        if (recentCheckpoint != null)
+        {
+            player.transform.position = recentCheckpoint;
+        }
+        
     }
 }
