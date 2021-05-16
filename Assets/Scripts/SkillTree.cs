@@ -79,7 +79,7 @@ public class SkillTree : MonoBehaviour
             currVisionIncrease++;
             skillRatios[1].text = currVisionIncrease + "/6";
             ReducePoints(1);
-            cam.GetComponent<Camera>().orthographicSize++;
+            cam.GetComponent<Camera>().orthographicSize += 2;
 
             if(currVisionIncrease >= 6)
             {
