@@ -8,6 +8,7 @@ public class StarPickup : MonoBehaviour
     private GameManager gameManagerScript;
     [SerializeField] private GameObject door;
     private Door doorScript;
+    private SkillTree skillTreeScript;
 
     private bool pickedup = false;
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class StarPickup : MonoBehaviour
     {
         sAnim = GetComponent<Animator>();
         gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
+        skillTreeScript = GameObject.Find("GameManager").GetComponent<SkillTree>();
         if(door == null)
         {
             Debug.Log(gameObject.name + " Missing Door Reference");
@@ -31,6 +33,7 @@ public class StarPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !pickedup)
         {
+            skillTreeScript.GainPoint();
             gameManagerScript.SetCheckpoint(gameObject.transform.position);
             doorScript.IncreaseStarCount();
             pickedup = true;
