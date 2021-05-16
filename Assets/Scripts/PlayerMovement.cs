@@ -13,6 +13,13 @@ public class PlayerMovement : MonoBehaviour
     private float target;
     private float goUp;
     private float goRight;
+
+    private bool notMoving = false;
+    private bool bushSpawned = false;
+    private bool isStealthSkill = false;
+    private GameObject tempBush;
+
+    [SerializeField] private GameObject bush;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +39,39 @@ public class PlayerMovement : MonoBehaviour
         goRight = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         //transform.Translate(goRight, goUp, 0);
         rb.velocity = new Vector2(goRight, goUp);
-
+        if (isStealthSkill)
+        {
+            if (rb.velocity.x == 0 && rb.velocity.y == 0)
+            {
+                if (!bushSpawned)
+                {
+                    Invoke("SpawnBush", 1);
+                }
+                notMoving = true;
+                Debug.Log("Not Moving");
+            }
+            else
+            {
+                if(tempBush != null)
+                {
+                    Destroy(tempBush);
+                }
+                notMoving = false;
+                bushSpawned = false;
+            }
+        }
 
     }
-    
+    private void SpawnBush()
+    {
+        if (notMoving && !bushSpawned)
+        {
+            bushSpawned = true;
+            tempBush = Instantiate(bush, new Vector3(transform.position.x - 1.5f, transform.position.y - 1.5f, -1), Quaternion.Euler(0, 0, 0));
+        }
+
+    }
+
     private void SetRotation(int deg)
     {
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, deg));
@@ -85,5 +121,16 @@ public class PlayerMovement : MonoBehaviour
             //W
             SetRotation(90);
         }
+    }
+
+    public void IncreaseMovement()
+    {
+        speed += 150;
+        Debug.Log("Current Speed: " + speed);
+    }
+
+    public void EnableSkillStealth()
+    {
+        isStealthSkill = true;
     }
 }
