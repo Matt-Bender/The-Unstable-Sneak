@@ -18,7 +18,7 @@ public class SkillTree : MonoBehaviour
     private int currMoveIncrease = 0;
     private int currVisionIncrease = 0;
 
-    private int numOfPoints = 0;
+    [SerializeField] private int numOfPoints = 0;
     private bool skillStealth = false;
     // Start is called before the first frame update
     void Start()

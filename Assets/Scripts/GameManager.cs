@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void SetCheckpoint(Vector3 checkpoint)
     {
-        recentCheckpoint = checkpoint;
+        recentCheckpoint = new Vector3(checkpoint.x, checkpoint.y, -2);
     }
 
     public void ReturnCheckpoint()
