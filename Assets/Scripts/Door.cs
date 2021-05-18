@@ -34,4 +34,9 @@ public class Door : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public int GetStarCount()
+    {
+        return starCount;
+    }
 }

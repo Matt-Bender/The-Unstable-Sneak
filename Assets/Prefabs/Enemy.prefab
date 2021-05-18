@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 792228703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.5, z: 0}
-  m_LocalScale: {x: 7, y: 4, z: 1}
+  m_LocalScale: {x: 5, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 4181261976628620001}
   m_RootOrder: 1
@@ -315,6 +315,7 @@ MonoBehaviour:
   verticalPatrol: 1
   limitPatrolLength: 0
   maxPatrolLength: 10
+  speed: 6
 --- !u!114 &608766385
 MonoBehaviour:
   m_ObjectHideFlags: 0

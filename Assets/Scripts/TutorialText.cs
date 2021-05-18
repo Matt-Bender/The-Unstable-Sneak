@@ -34,17 +34,13 @@ public class TutorialText : MonoBehaviour
         }
         else if(collision.gameObject == tutorialBoxes[3])
         {
-            tutorialText.text = "Collect 3 yellow squares to unlock yellow door";
-        }
-        else if(collision.gameObject == tutorialBoxes[4])
-        {
             tutorialText.text = "Each yellow square grants a point, press E to spend them";
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        if (collision.gameObject == tutorialBoxes[0] || collision.gameObject == tutorialBoxes[1] || collision.gameObject == tutorialBoxes[2] || collision.gameObject == tutorialBoxes[3] || collision.gameObject == tutorialBoxes[4])
+        if (collision.gameObject == tutorialBoxes[0] || collision.gameObject == tutorialBoxes[1] || collision.gameObject == tutorialBoxes[2] || collision.gameObject == tutorialBoxes[3])
         {
             tutorialText.text = "";
         }

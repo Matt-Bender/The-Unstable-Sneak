@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (!bushSpawned)
                 {
-                    Invoke("SpawnBush", 1);
+                    Invoke("SpawnBush", .2f);
                 }
                 notMoving = true;
                 Debug.Log("Not Moving");

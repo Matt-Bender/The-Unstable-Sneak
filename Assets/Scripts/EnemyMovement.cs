@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private bool verticalPatrol;
     [SerializeField] private bool limitPatrolLength;
     [SerializeField] private int maxPatrolLength;
+    [SerializeField] private float speed;
 
     private GameObject player;
     private Stealth playerStealthScript;
@@ -36,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.velocity = transform.TransformDirection(new Vector2(0, 4));
+        rb.velocity = transform.TransformDirection(new Vector2(0, speed));
         if (limitPatrolLength)
         {
             if (verticalPatrol)

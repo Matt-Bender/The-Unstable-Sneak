@@ -7,15 +7,13 @@ public class GameManager : MonoBehaviour
 {
     private Vector3 recentCheckpoint;
     private GameObject player;
+    private Stealth playerStealthScript;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerStealthScript = player.GetComponent<Stealth>();
         recentCheckpoint = player.transform.position;
-        //if (recentCheckpoint != null)
-        //{
-        //    player.transform.position = recentCheckpoint;
-        //}
         
     }
 
@@ -40,7 +38,21 @@ public class GameManager : MonoBehaviour
         if (recentCheckpoint != null)
         {
             player.transform.position = recentCheckpoint;
+
+            //Gives player brief immunity after respawning
+            playerStealthScript.SetIsStealthed(true);
+            Invoke("TurnOffPlayerStealth", 2);
         }
         
+    }
+
+    private void TurnOffPlayerStealth()
+    {
+        playerStealthScript.SetIsStealthed(false);
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }
