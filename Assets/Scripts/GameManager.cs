@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private Vector3 recentCheckpoint;
+    [SerializeField] private Vector3[] recentCheckpoint;
+    private int checkpointNum = 0;
     private GameObject player;
     private Stealth playerStealthScript;
+
+    private int closestNum;
     // Start is called before the first frame update
     void Start()
     {
+        for(int i = 0; i < recentCheckpoint.Length; i++)
+        {
+            recentCheckpoint[i] = new Vector3(1000, 1000, 0);
+        }
         player = GameObject.FindGameObjectWithTag("Player");
         playerStealthScript = player.GetComponent<Stealth>();
-        recentCheckpoint = player.transform.position;
-        
+        recentCheckpoint[checkpointNum] = player.transform.position;
+        checkpointNum++;
     }
 
     // Update is called once per frame
@@ -30,14 +37,24 @@ public class GameManager : MonoBehaviour
 
     public void SetCheckpoint(Vector3 checkpoint)
     {
-        recentCheckpoint = new Vector3(checkpoint.x, checkpoint.y, -2);
+        recentCheckpoint[checkpointNum] = new Vector3(checkpoint.x, checkpoint.y, -2);
+        checkpointNum++;
     }
 
     public void ReturnCheckpoint()
     {
+        
+        float closestDistance = 1000;
+        for(int i = 0; i < recentCheckpoint.Length; i++)
+        {
+            if (Vector3.Distance(recentCheckpoint[i], player.transform.position) < closestDistance)
+            {
+                closestNum = i;
+            }
+        }
         if (recentCheckpoint != null)
         {
-            player.transform.position = recentCheckpoint;
+            player.transform.position = recentCheckpoint[closestNum];
 
             //Gives player brief immunity after respawning
             playerStealthScript.SetIsStealthed(true);

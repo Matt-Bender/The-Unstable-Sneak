@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     private GameManager gameManagerScript;
+    private bool isActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,10 @@ public class Checkpoint : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && isActive)
         {
             gameManagerScript.SetCheckpoint(transform.position);
+            isActive = false;
         }
     }
 }

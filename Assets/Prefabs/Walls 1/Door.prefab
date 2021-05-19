@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4736261064967700914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2222268567969641027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf3940bb2dfc3d45b830c658cbe8126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stars: {fileID: 0}
-  oneStar: 0
 --- !u!61 &1756923487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38,7 +24,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 3}
+  m_Size: {x: 10, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &1756923488
 MonoBehaviour:
@@ -53,6 +39,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 0}
+--- !u!114 &4736261064967700914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222268567969641027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf3940bb2dfc3d45b830c658cbe8126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stars: {fileID: 0}
+  oneStar: 0
 --- !u!1001 &5325507734335522521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8107b33e99f1ab1488fd04a6016bed26, type: 2}
     - target: {fileID: 6286766061554676890, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
       propertyPath: m_Name
-      value: Door (1)
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 6286766061554676894, guid: 5a4b772dbd0e8474d84f4572a4286bb5, type: 3}
       propertyPath: m_RootOrder
