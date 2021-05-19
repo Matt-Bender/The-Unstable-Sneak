@@ -29,7 +29,11 @@ public class SkillTree : MonoBehaviour
 
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         skillCanvas = GameObject.Find("SkillCanvas");
-        skillCanvas.SetActive(false);
+        if(skillCanvas != null)
+        {
+            skillCanvas.SetActive(false);
+        }
+        
     }
 
     // Update is called once per frame

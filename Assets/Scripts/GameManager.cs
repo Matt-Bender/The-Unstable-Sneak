@@ -51,8 +51,18 @@ public class GameManager : MonoBehaviour
         playerStealthScript.SetIsStealthed(false);
     }
 
-    public void EndGame()
+    public void GoPlayGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Play");
+    }
+
+    public void GoCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void GoMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

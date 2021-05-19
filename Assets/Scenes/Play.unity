@@ -17183,7 +17183,7 @@ MonoBehaviour:
   - {fileID: 1099314216}
   - {fileID: 1388576766}
   - {fileID: 575187424}
-  numOfPoints: 3
+  numOfPoints: 0
 --- !u!1 &504443352
 GameObject:
   m_ObjectHideFlags: 0

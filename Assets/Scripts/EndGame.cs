@@ -14,7 +14,7 @@ public class EndGame : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gmScript.EndGame();
+            gmScript.GoCredits();
         }
     }
 }
