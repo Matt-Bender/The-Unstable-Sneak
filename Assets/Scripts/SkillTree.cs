@@ -15,9 +15,9 @@ public class SkillTree : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pointsDisplay;
     [SerializeField] private TextMeshProUGUI[] skillRatios;
     [SerializeField] private Button[] buttons;
+
     private int currMoveIncrease = 0;
     private int currVisionIncrease = 0;
-
     [SerializeField] private int numOfPoints = 0;
     private bool skillStealth = false;
     // Start is called before the first frame update
@@ -26,8 +26,8 @@ public class SkillTree : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerMovementScript = player.GetComponent<PlayerMovement>();
         playerStealthScript = player.GetComponent<Stealth>();
-
         cam = GameObject.FindGameObjectWithTag("MainCamera");
+
         skillCanvas = GameObject.Find("SkillCanvas");
         if(skillCanvas != null)
         {
@@ -106,10 +106,6 @@ public class SkillTree : MonoBehaviour
         }
         
     }
-
-
-
-
 
     private void ReducePoints(int decrement)
     {

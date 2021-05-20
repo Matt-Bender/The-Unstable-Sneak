@@ -25,25 +25,22 @@ public class EnemyDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks for obstacles
         RaycastHit2D hit = Physics2D.Raycast(transform.position, enemyMovementScript.GetDirection(), rayDistance, obstacleLayer);
+        //Shows raycast in editor
         Debug.DrawRay(transform.position, enemyMovementScript.GetDirection() * rayDistance, Color.green);
 
         if (hit.collider != null)
         {
-            //Debug.Log("Raycast Hit Wall");
+            //Raycast hitting wall
             wideRangeDetection.transform.localScale = new Vector3(wideRangeDetection.transform.localScale.x, hit.distance - .5f, wideRangeDetection.transform.localScale.z);
             wideRangeDetection.transform.localPosition = new Vector3(wideRangeDetection.transform.localPosition.x, wideRangeDetection.transform.localScale.y / 2 + .5f, wideRangeDetection.transform.localPosition.z);
         }
         else
         {
-            //Debug.Log("Not Hitting Object");
+            //Raycast not hitting wall
             wideRangeDetection.transform.localScale = new Vector3(wideRangeDetection.transform.localScale.x, 4, wideRangeDetection.transform.localScale.z);
             wideRangeDetection.transform.localPosition = new Vector3(wideRangeDetection.transform.localPosition.x, wideRangeDetection.transform.localScale.y / 2 + .5f, wideRangeDetection.transform.localPosition.z);
         }
-
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("Trigger");
     }
 }
